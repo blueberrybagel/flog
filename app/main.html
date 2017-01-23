@@ -1,0 +1,51 @@
+<!Doctype html>
+<html>
+<head>
+    <title>The Feeling Stars</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="angular/angular.min.js"></script>
+    <script src="graph.js"></script>
+    <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet"/>
+</head>
+<style>
+.bar-chart {
+    display: inline-block;
+    margin-right: 1px;
+    background-color: hotpink;
+}
+
+.chart {
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+
+.axis text {
+    font: 10px sans-serif;
+}
+</style>
+<body>
+    <div ng-app="app">
+        <div ng-controller="graphCtrl" class="wrap">
+            <div>
+                <span>keyword: </span><input type="text" name="keyword" ng-model="keyword"/>
+                <span>score: </span><input type="number" name="score" ng-model="score"/>
+                <button class="btn btn-success" ng-click="addFeelingPoint(score, keyword)">submit</button>
+            </div>
+            <div id="chart"></div>
+            <div id="viz"></div>
+        </div>
+    </div>
+</body>
+</html>
